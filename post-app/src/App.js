@@ -15,12 +15,6 @@ class App extends Component {
           <h1>Posts List</h1>
           <PostsList/>
         </div>
-        <div>
-          <PostsContainer />
-        </div>
-        <div>
-        </div>
-
       </div>
 
     );

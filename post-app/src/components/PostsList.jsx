@@ -6,6 +6,7 @@ import update from 'immutability-helper'
 
 // import Post from './Post';
 import '../stylesheets/PostsList.css';
+import Post from './Post';
 
 function PostsList() {
 
@@ -19,12 +20,22 @@ function PostsList() {
       .then(response => {
         const postsUpdate = update(posts, {
           $splice: [[0, 0, response.data]]
-        })
-        setPosts(postsUpdate)
+        });
+        setPosts(postsUpdate);
       })
-      // const postsUpdate = [post, ...posts];
-      // setPosts(postsUpdate);
     }
+  }
+
+  const deletePost = id => {
+    axios.delete(`/api/v1/posts/${id}`)
+    .then(response => {
+      const postIndex = posts.findIndex(post => post.id === id)
+      const postsUpdate = update(posts, {
+        $splice: [[postIndex, 1]]
+      })
+      setPosts(postsUpdate);
+    })
+    .catch(error => console.log(error));
   }
 
   const getPosts = () => {
@@ -42,6 +53,17 @@ function PostsList() {
   return (
     <>
       <PostForm onSubmit={addPost}/>
+      <div className='post-list-contenedor'>
+        {
+          posts.map((post) =>
+            <Post
+              id={post.id}
+              name={post.name}
+              description={post.description}
+              deletePost={deletePost} />
+          )
+        }
+      </div>
     </>
   )
 }
