@@ -10,6 +10,7 @@ import '../stylesheets/PostsList.css';
 function PostsList() {
 
   const [posts, setPosts] = useState([]);
+  const [filterValue, setFilterValue] = useState("");
 
   const addPost = post => {
     if (post.name.trim() && post.description.trim()) {
@@ -38,7 +39,7 @@ function PostsList() {
   }
 
   const getPosts = () => {
-    axios.get('/api/v1/posts')
+    axios.get(`/api/v1/posts`)
     .then(response => {
       setPosts(response.data)
     })
@@ -49,9 +50,24 @@ function PostsList() {
     getPosts();
   }, [])
 
+  // Función para filtrar los posts según el valor del filtro
+  const filterPosts = (posts, filterValue) => {
+    return posts.filter(post => {
+      return post.name.toLowerCase().includes(filterValue.toLowerCase())
+    })
+  }
+  //Funcion para actualizar el valor del filtro cada vez que el input del usuario cambie
+  const handleFilterChange = event => {
+    setFilterValue(event.target.value);
+  }
+
+  // Para obtener el valor de los posts filtrados
+  const filteredPosts = filterPosts(posts, filterValue);
+
   return (
 
     <div>
+    <input className='post-input' placeholder='Filtro' type="text" value={filterValue} onChange={handleFilterChange} />
     <table className='post-table'>
       <thead>
         <tr>
@@ -61,7 +77,7 @@ function PostsList() {
         </tr>
       </thead>
       <tbody>
-        {posts.map(post => (
+        {filteredPosts.map(post => (
           <tr key={post.id}>
             <td>{post.name}</td>
             <td>{post.description}</td>
