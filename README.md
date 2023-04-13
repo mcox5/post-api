@@ -5,7 +5,7 @@ With this app you can see/create/delete posts.
 The app was built with `Rails` for the backend (rails api) and `React` for frontend.
 
 # Requirements
-1. Install BEFORE run the app `Rails`, `React`, `yarn`
+1. Install BEFORE run the app, install `Ruby 3.1.2` `Rails 7.0.4.3`, `React 7.0.5`, `yarn 1.22.19`, `Postgresql: 14.837`, it´s recommended to use the same versions
 
 2. Install `axios` to make the API´s calls: `cd post-app` and then `npm install axios --save`
 
