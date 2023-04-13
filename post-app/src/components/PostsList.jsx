@@ -51,20 +51,30 @@ function PostsList() {
   }, [])
 
   return (
-    <>
-      <PostForm onSubmit={addPost}/>
-      <div className='post-list-contenedor'>
-        {
-          posts.map((post) =>
-            <Post
-              id={post.id}
-              name={post.name}
-              description={post.description}
-              deletePost={deletePost} />
-          )
-        }
-      </div>
-    </>
+
+    <div>
+    <table className='post-table'>
+      <thead>
+        <tr>
+          <th>Nombre Post</th>
+          <th>Descripción</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        {posts.map(post => (
+          <tr key={post.id}>
+            <td>{post.name}</td>
+            <td>{post.description}</td>
+            <td>
+              <button onClick={() => deletePost(post.id)}>Eliminar</button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <PostForm onSubmit={addPost}/>
+    </div>
   )
 }
 

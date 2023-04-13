@@ -1,6 +1,18 @@
-.post-list-contenedor {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 15px;
+.post-table {
+  border-collapse: collapse;
+  border: 2px solid black;
+  margin: 0 auto;
+  text-align: center;
 }
+
+.post-table th,
+.post-table td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.post-table th {
+  background-color: lightgray;
+}
+
+
