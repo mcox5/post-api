@@ -45,7 +45,7 @@ function PostForm(props) {
         onChange={handleChange}
       />
       <button className='post-button' type='submit'>
-        Create Post
+        Crear Post
       </button>
     </form>
   );
