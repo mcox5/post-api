@@ -6,7 +6,6 @@ import update from 'immutability-helper'
 
 // import Post from './Post';
 import '../stylesheets/PostsList.css';
-import Post from './Post';
 
 function PostsList() {
 

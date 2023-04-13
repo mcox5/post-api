@@ -1,11 +1,6 @@
-
 import React, { Component } from 'react';
 import './App.css';
-import PostsContainer from './components/PostsContainer'
 import PostsList from './components/PostsList'
-
-import PostForm from './components/PostsContainer'
-
 
 class App extends Component {
   render() {
