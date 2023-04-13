@@ -29,7 +29,7 @@ function PostForm(props) {
   }
 
   return (
-    <form className='post-form' onSubmit={handleSubmit} ref={formRef}>
+    <form className='post-form' onSubmit={handleSubmit} ref={formRef} >
       <input
         className='post-input'
         type='text'
