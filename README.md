@@ -1,24 +1,31 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+With this app you can see/create/delete posts.
 
-Things you may want to cover:
+The app was built with `Rails` for the backend (rails api) and `React` for frontend.
 
-* Ruby version
+# Requirements
+1. Install BEFORE run the app `Rails`, `React`, `yarn`
 
-* System dependencies
+2. Install `axios` to make the API´s calls: `cd post-app` and then `npm install axios --save`
 
-* Configuration
+3. To update the state I use `immutability-helper` : `npm install immutability-helper --save`
 
-* Database creation
+4. Heroku CLI: You should install the Heroku command-line interface on your machine. You can download it from the official Heroku website. Follow the on-screen instructions to install the CLI on your machine.
 
-* Database initialization
+5. Node.js and npm: Make sure that you have Node.js and npm installed on your machine. You can download them from the official Node.js website. Verify that they are correctly installed by running `node -v` and `npm -v` in your terminal.
 
-* How to run the test suite
+6. Project dependencies: It is necessary that you have installed the project dependencies that are listed in the package.json file. To install the dependencies, run `npm install` in the root folder of your project.
 
-* Services (job queues, cache servers, search engines, etc.)
+7. Procfile: The command `heroku local -f Procfile.dev` refers to the Procfile.dev file. Make sure that this file exists in the root folder of your project and that it has the correct content.
 
-* Deployment instructions
+# To run rails API server:
 
-* ...
+1. Install all the ruby gems with this command: `bundle install`
+2. Reset the database and run the seed with: `rails db:reset`
+3. Start the server: `rails s`
+
+# To run the APP and the API server at the same time:
+
+I use the `heroku local -f Procfile.dev` to run the APP and the API at the same time.
+**BEFORE** run the app please have the items mentionated in the requirements installed.
